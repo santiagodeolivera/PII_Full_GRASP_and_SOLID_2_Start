@@ -25,6 +25,10 @@ namespace Full_GRASP_And_SOLID.Library
             this.steps.Remove(step);
         }
 
+        // The previous form of this method didn't follow the SRP principle because
+        // the way in which the representative text of the recipe is used
+        // (whether it's printing in console, or writing to a file, or sending over the Internet)
+        // is not related to the recipe itself, so it's modified into a separate responsibility.
         public void PrintRecipe(ITextRedirector textRedirector)
         {
             textRedirector.InsertText("Receta de ");

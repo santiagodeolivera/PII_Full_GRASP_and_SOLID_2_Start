@@ -50,13 +50,13 @@ namespace Full_GRASP_And_SOLID
 	}
 
 	/// <summary>
-	/// This interface offers a dynamic way to transform a stream of strings into an object.
+	/// This interface offers a dynamic way to transform a stream of strings into an object of the implementer's choice.
 	/// </summary>
 	/// <typeparam name="T">The type of the object the stream of string will transform into</typeparam>
 	public interface ITextRedirector<T> : ITextRedirector
 	{
 		/// <summary>
-		/// Generates the resulting object and returns it.
+		/// Generates the resulting object and returns it after having received several strings.
 		/// After calling this function once, don't call it or neither of its `ITextRedirector` functions again.
 		/// Doing so might result in an exception or undefined behavior.
 		/// </summary>
