@@ -25,13 +25,21 @@ namespace Full_GRASP_And_SOLID.Library
             this.steps.Remove(step);
         }
 
-        public void PrintRecipe()
+        public void PrintRecipe(ITextRedirector textRedirector)
         {
-            Console.WriteLine($"Receta de {this.FinalProduct.Description}:");
+            textRedirector.InsertText("Receta de ");
+            textRedirector.InsertText(this.FinalProduct.Description);
+            textRedirector.InsertText(":\n");
             foreach (Step step in this.steps)
             {
-                Console.WriteLine($"{step.Quantity} de '{step.Input.Description}' " +
-                    $"usando '{step.Equipment.Description}' durante {step.Time}");
+                textRedirector.Insert(step.Quantity);
+                textRedirector.InsertText(" de '");
+                textRedirector.InsertText(step.Input.Description);
+                textRedirector.InsertText("' usando '");
+                textRedirector.InsertText(step.Equipment.Description);
+                textRedirector.InsertText("' durante ");
+                textRedirector.Insert(step.Time);
+                textRedirector.InsertText(" minutos \n");
             }
         }
     }
